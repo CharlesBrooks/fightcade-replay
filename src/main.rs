@@ -16,7 +16,9 @@ unsafe extern "system" fn enum_windows_callback(hwnd: HWND, lparam: LPARAM) -> B
         let title_osstring = OsString::from_wide(&title[..title_length - 1]);
         if let Ok(title_string) = title_osstring.into_string() {
             let titles = &mut *(lparam.0 as *mut Vec<String>);
-            titles.push(title_string);
+            if title_string.contains("Fightcade FBNeo") {
+                titles.push(title_string);
+            }
         }
     }
     true.into()
@@ -32,7 +34,9 @@ fn get_window_titles() -> Vec<String> {
 
 fn main() {
     let window_titles = get_window_titles();
+
+    //only print window titles that contain "Fightcade FBNeo"
     for title in window_titles {
-        println!("Window : {}", title);
+        println!("{}", title);
     }
 }
