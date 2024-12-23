@@ -4,9 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-windows = { version = "0.52.0", features = [
+windows = { version = "0.48", features = [
     "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
 ]}
 windows-sys = { version = "0.52.0", features = [
     "Win32",
@@ -14,4 +15,12 @@ windows-sys = { version = "0.52.0", features = [
     "Win32_Security",
     "Win32_System_Threading",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
 ] }
+scrap = "0.5"
+ringbuffer = "0.15.0"
+image = "0.24"
+ctrlc = "3.4"
+gstreamer = "0.21.1"
+gstreamer-app = "0.21.1"
+gstreamer-video = "0.21.1"
